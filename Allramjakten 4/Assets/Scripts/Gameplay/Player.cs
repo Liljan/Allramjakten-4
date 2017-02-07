@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
     // movement
     private Rigidbody2D rb2d;
     public float speed = 5.0f;
@@ -53,6 +52,6 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-
+        
     }
 }
