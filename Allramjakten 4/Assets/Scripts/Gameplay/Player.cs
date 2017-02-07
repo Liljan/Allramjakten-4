@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     private float vx, vy;
 
+    private LevelManager levelManager;
+
     // Use this for initialization
     void Start()
     {
@@ -17,6 +19,7 @@ public class Player : MonoBehaviour
         vy = 0.0f;
 
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,13 @@ public class Player : MonoBehaviour
         }
 
         transform.Translate(vx * Time.deltaTime, vy * Time.deltaTime, 0.0f);
+    }
+
+    public void Kill()
+    {
+        levelManager.RemoveLife();
+        levelManager.Respawn();
+        Destroy(this.gameObject);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
